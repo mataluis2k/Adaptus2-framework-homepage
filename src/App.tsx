@@ -163,7 +163,7 @@ function App() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <img 
-                src="https://raw.githubusercontent.com/adaptus2-framework/assets/main/logo-white.png" 
+                src={adaptusLogo} 
                 alt="Adaptus2 Framework" 
                 className="h-8 w-auto"
               />
