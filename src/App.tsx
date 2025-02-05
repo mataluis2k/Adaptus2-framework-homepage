@@ -19,7 +19,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <img 
-              src="https://raw.githubusercontent.com/adaptus2-framework/assets/main/logo.png" 
+              src="https://adaptus2-framework.com/adaptus2.jpg" 
               alt="Adaptus2 Framework" 
               className="h-8 w-auto"
             />
@@ -39,7 +39,7 @@ function App() {
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://raw.githubusercontent.com/adaptus2-framework/assets/main/hero-bg.png')] opacity-10 bg-center bg-no-repeat bg-contain"></div>
+        <div className="absolute inset-0 bg-[url('https://adaptus2-framework.com/adaptus2.jpg')] opacity-10 bg-center bg-no-repeat bg-contain"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center relative">
           <h1 className="text-5xl font-bold text-secondary mb-6">
             Build Powerful APPs with <span className="text-primary">Adaptus2</span>
