@@ -40,10 +40,11 @@ function App() {
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0" style={{ backgroundImage: `url(${adaptusLogo})`, opacity: 0.1, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'contain' }}></div>
+        <div className="absolute inset-0" style={{ backgroundImage: `url(${adaptusLogo})`, opacity: 0.1, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center relative">
           <h1 className="text-5xl font-bold text-secondary mb-6">
-          Build Powerful, AI-Ready Apps with <span className="text-primary">Adaptus2-Framework</span>
+            Build Powerful, AI-Ready Apps with<br/>
+            <span className="text-primary">Adaptus2-Framework</span>
           </h1>
           <p className="text-xl text-secondary/80 mb-8 max-w-3xl mx-auto">
           A flexible, modular framework built on Express for plug-and-play machine learning—run local LLMs, RAG, real-time updates, GraphQL, and scalable microservices. Go from zero to production fast!
