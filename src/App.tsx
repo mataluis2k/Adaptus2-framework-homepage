@@ -84,6 +84,43 @@ function App() {
         </div>
       </div>
 
+            {/* Installation Section */}
+        <div className="bg-white/50 backdrop-blur-sm py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-8 text-secondary">Get Started in Minutes</h2>
+          <div className="bg-secondary rounded-lg p-6 max-w-3xl mx-auto">
+            <p className="text-primary/80 mb-4">First, create a folder for your server configs and plugins:</p>
+            <code className="text-primary block mb-6 bg-secondary/90 p-3 rounded">
+              mkdir adaptus2<br/>
+              cd adaptus2
+            </code>
+            
+            <p className="text-primary/80 mb-4">Install the framework globally:</p>
+            <code className="text-primary block mb-6 bg-secondary/90 p-3 rounded">
+              npm install -g adaptus2-framework
+            </code>
+            
+            <p className="text-primary/80 mb-4">Set up your server configuration:</p>
+            <code className="text-primary block mb-6 bg-secondary/90 p-3 rounded">
+              adaptus2-setup
+            </code>
+            
+            <p className="text-primary/80 mb-4">If you have an existing database with schema, hydrate/build the apiConfig.json file:</p>
+            <code className="text-primary block mb-6 bg-secondary/90 p-3 rounded">
+              adaptus2 --build
+            </code>
+            
+            <p className="text-primary/80 mb-4">Start the server:</p>
+            <code className="text-primary block bg-secondary/90 p-3 rounded">
+              adaptus2
+            </code>
+          </div>
+          <p className="text-center mt-8 text-secondary/80">
+            Start building your next API with Adaptus2 Framework today!
+          </p>
+        </div>
+      </div>
+
       {/* Footer */}
       <footer className="bg-secondary text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
