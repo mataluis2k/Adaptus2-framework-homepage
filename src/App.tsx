@@ -56,7 +56,9 @@ function App() {
               Chatbot AI
             </a>
             <a
-              href="#adaptus2-ui"
+              href="https://github.com/mataluis2k/Adaptus2-UI"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-secondary hover:text-primary transition-colors"
             >
               Adaptus2-UI
