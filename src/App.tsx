@@ -120,7 +120,7 @@ function App() {
               Chatbot AI
             </a>
             <a
-              href="#adaptus2-ui"
+              href="https://github.com/mataluis2k/Adaptus2-UI"
               className="block px-4 py-2 text-secondary hover:text-primary transition-colors"
             >
               Adaptus2-UI
@@ -360,43 +360,38 @@ function App() {
           <h4 className="text-xl font-medium mb-4 text-secondary">Step 1: Install and Configure Adaptus2-Framework</h4>
           <p className="text-secondary/80 text-justify mb-4 leading-relaxed">
             First, ensure you have Node.js installed and then set up Adaptus2-Framework:
+            Make a folder where you want to store your server configurations and plugins:            
           </p>
-          <pre className="bg-secondary/10 p-4 rounded-lg mb-6"><code>npm install adaptus2-framework</code></pre>
+          <pre className="bg-secondary/10 p-4 rounded-lg mb-6"><code>
+            mkdir adaptus2
+            cd adaptus2
+            sudo npm -g install adaptus2-framework</code></pre>
           <p className="text-secondary/80 text-justify mb-4 leading-relaxed">
             Next, create an apiConfig.json file to define routes and settings:
           </p>
-          <pre className="bg-secondary/10 p-4 rounded-lg mb-6"><code>{'{\n' +
-          '    "server": {\n' +
-          '        "port": 3000,\n' +
-          '        "enableGraphQL": true,\n' +
-          '        "enableWebSocket": true\n' +
-          '    },\n' +
-          '    "authentication": {\n' +
-          '        "jwtSecret": "your_secret_key",\n' +
-          '        "enableACL": true\n' +
-          '    }\n' +
-          '}'}</code></pre>
+          <pre className="bg-secondary/10 p-4 rounded-lg mb-6"><code>
+          # Set up your server configuration:
+          adaptus2-setup
+
+          #If you have an existing database with schema, hydrate/build the apiConfig.json file:
+
+          adaptus2 --build
+
+          # run server 
+                                 
+          </code></pre>
           <p className="text-secondary/80 text-justify mb-4 leading-relaxed">
             Run the framework:
           </p>
-          <pre className="bg-secondary/10 p-4 rounded-lg mb-8"><code>node server.js</code></pre>
+          <pre className="bg-secondary/10 p-4 rounded-lg mb-8"><code>adaptus2</code></pre>
           <p className="text-secondary/80 text-justify mb-6 leading-relaxed">
             This initializes your backend, including WebSocket support for real-time conversations.
           </p>
 
           <h4 className="text-xl font-medium mb-4 text-secondary">Step 2: Enable the Chat Module</h4>
           <p className="text-secondary/80 text-justify mb-4 leading-relaxed">
-            Adaptus2-Framework includes a built-in chatModule for managing chat interactions. Activate it by adding the following to your apiConfig.json:
+            Adaptus2-Framework includes a built-in chatModule for managing chat interactions. 
           </p>
-          <pre className="bg-secondary/10 p-4 rounded-lg mb-6"><code>{'{\n' +
-          '    "modules": {\n' +
-          '        "chatModule": {\n' +
-          '        "enable": true,\n' +
-          '        "database": "chatDB",\n' +
-          '        "historyLimit": 50\n' +
-          '        }\n' +
-          '    }\n' +
-          '}'}</code></pre>
           <p className="text-secondary/80 mb-4 font-medium">
             💡 How It Works:
           </p>
