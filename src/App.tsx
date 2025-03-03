@@ -1,9 +1,15 @@
 import React from 'react';
 import adaptusLogo from '../adaptus2.jpg';
-import { Github, Server, Zap, Shield, Database, Plug as Plugin, Terminal, Gauge, MessageSquare, Brain, Layers } from 'lucide-react';
+import { Github, Server, Zap, Shield, Database, Plug as Plugin, Terminal, Gauge, MessageSquare, Brain, Layers, LucideIcon } from 'lucide-react';
 import { useState } from 'react';
 
-function FeatureCard({ icon: Icon, title, description }) {
+interface FeatureCardProps {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+function FeatureCard({ icon: Icon, title, description }: FeatureCardProps) {
   return (
     <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-md hover:shadow-xl transition-all hover:-translate-y-1 border border-primary/10">
       <Icon className="w-8 h-8 text-primary mb-4" />
@@ -367,32 +373,32 @@ function App() {
                     <p>First, ensure you have Node.js installed and then set up Adaptus2-Framework:</p>
                     <pre><code>npm install adaptus2-framework</code></pre>
                     <p>Next, create an apiConfig.json file to define routes and settings:</p>
-                    <pre><code>{
-                    "server": {
-                        "port": 3000,
-                        "enableGraphQL": true,
-                        "enableWebSocket": true
-                    },
-                    "authentication": {
-                        "jwtSecret": "your_secret_key",
-                        "enableACL": true
-                    }
-                    }</code></pre>
+                    <pre><code>{'{\n' +
+                    '    "server": {\n' +
+                    '        "port": 3000,\n' +
+                    '        "enableGraphQL": true,\n' +
+                    '        "enableWebSocket": true\n' +
+                    '    },\n' +
+                    '    "authentication": {\n' +
+                    '        "jwtSecret": "your_secret_key",\n' +
+                    '        "enableACL": true\n' +
+                    '    }\n' +
+                    '}'}</code></pre>
                     <p>Run the framework:</p>
                     <pre><code>node server.js</code></pre>
                     <p>This initializes your backend, including WebSocket support for real-time conversations.</p>
 
                     <h4>Step 2: Enable the Chat Module</h4>
                     <p>Adaptus2-Framework includes a built-in chatModule for managing chat interactions. Activate it by adding the following to your apiConfig.json:</p>
-                    <pre><code>{
-                    "modules": {
-                        "chatModule": {
-                        "enable": true,
-                        "database": "chatDB",
-                        "historyLimit": 50
-                        }
-                    }
-                    }</code></pre>
+                    <pre><code>{'{\n' +
+                    '    "modules": {\n' +
+                    '        "chatModule": {\n' +
+                    '        "enable": true,\n' +
+                    '        "database": "chatDB",\n' +
+                    '        "historyLimit": 50\n' +
+                    '        }\n' +
+                    '    }\n' +
+                    '}'}</code></pre>
                     <p>💡 How It Works:</p>
                     <ul>
                         <li>Users connect via WebSocket.</li>
@@ -407,33 +413,30 @@ function App() {
                     <p>To make the chatbot AI-powered, we leverage the ollamaModule for natural language processing.</p>
                     <h4>Step 1: Activate the AI Module</h4>
                     <p>Enable the AI response handler in apiConfig.json:</p>
-                    <pre><code>{
-                    "modules": {
-                        "ollamaModule": {
-                        "enable": true,
-                        "model": "openai-gpt-4",
-                        "responseLength": 200
-                        }
-                    }
-                    }</code></pre>
+                    <pre><code>{'{\n' +
+                    '    "modules": {\n' +
+                    '        "ollamaModule": {\n' +
+                    '        "enable": true,\n' +
+                    '        "model": "openai-gpt-4",\n' +
+                    '        "responseLength": 200\n' +
+                    '        }\n' +
+                    '    }\n' +
+                    '}'}</code></pre>
                     <p>This configuration connects the chatbot to an AI model that generates intelligent responses.</p>
 
                     <h4>Step 2: Implement AI Message Handling</h4>
                     <p>Modify the chatbot’s message handler in server.js:</p>
-                    <pre><code>const { ollamaModule } = require('adaptus2-framework');
-
-                    io.on('connection', (socket) => {
-                        console.log('User connected');
-
-                        socket.on('chatMessage', async (msg) => {
-                            const aiResponse = await ollamaModule.generateResponse(msg);
-                            socket.emit('botReply', aiResponse);
-                        });
-
-                        socket.on('disconnect', () => {
-                            console.log('User disconnected');
-                        });
-                    });</code></pre>
+                    <pre><code>{'const { ollamaModule } = require(\'adaptus2-framework\');\n\n' +
+                    '                    io.on(\'connection\', (socket) => {\n' +
+                    '                        console.log(\'User connected\');\n\n' +
+                    '                        socket.on(\'chatMessage\', async (msg) => {\n' +
+                    '                            const aiResponse = await ollamaModule.generateResponse(msg);\n' +
+                    '                            socket.emit(\'botReply\', aiResponse);\n' +
+                    '                        });\n\n' +
+                    '                        socket.on(\'disconnect\', () => {\n' +
+                    '                            console.log(\'User disconnected\');\n' +
+                    '                        });\n' +
+                    '                    });'}</code></pre>
                     <p>💡 How It Works:</p>
                     <ul>
                         <li>User sends a message via WebSocket (chatMessage).</li>
@@ -445,32 +448,29 @@ function App() {
                     <h3>4. Adding Multi-Channel Support (Slack, Teams, Website Chat)</h3>
                     <h4>Step 1: Integrate Slack or Microsoft Teams</h4>
                     <p>Enable the Slack and Teams plugins in apiConfig.json:</p>
-                    <pre><code>{
-                    "plugins": {
-                        "slackChatPlugin": { "enable": true },
-                        "teamsChatPlugin": { "enable": true }
-                    }
-                    }</code></pre>
+                    <pre><code>{'{\n' +
+                    '    "plugins": {\n' +
+                    '        "slackChatPlugin": { "enable": true },\n' +
+                    '        "teamsChatPlugin": { "enable": true }\n' +
+                    '    }\n' +
+                    '}'}</code></pre>
                     <p>Now, messages can be routed to Slack and Teams, allowing your AI chat online to be accessible across different platforms.</p>
 
                     <h4>Step 2: Embed the Chatbot on a Website</h4>
                     <p>Use a simple JavaScript frontend for embedding chat on your site:</p>
-                    <pre><code>&lt;script&gt;
-                    const socket = io("http://yourserver.com");
-
-                    function sendMessage() {
-                        const message = document.getElementById("userInput").value;
-                        socket.emit("chatMessage", message);
-                    }
-
-                    socket.on("botReply", function(response) {
-                        document.getElementById("chatbox").innerHTML += `&lt;p&gt;${response}&lt;/p&gt;`;
-                    });
-                    &lt;/script&gt;
-
-                    &lt;input type="text" id="userInput"&gt;
-                    &lt;button onclick="sendMessage()"&gt;Send&lt;/button&gt;
-                    &lt;div id="chatbox"&gt;&lt;/div&gt;</code></pre>
+                    <pre><code>{'<script>\n' +
+                    '                    const socket = io("http://yourserver.com");\n\n' +
+                    '                    function sendMessage() {\n' +
+                    '                        const message = document.getElementById("userInput").value;\n' +
+                    '                        socket.emit("chatMessage", message);\n' +
+                    '                    }\n\n' +
+                    '                    socket.on("botReply", function(response) {\n' +
+                    '                        document.getElementById("chatbox").innerHTML += `<p>${response}</p>`;\n' +
+                    '                    });\n' +
+                    '                    </script>\n\n' +
+                    '                    <input type="text" id="userInput">\n' +
+                    '                    <button onclick="sendMessage()">Send</button>\n' +
+                    '                    <div id="chatbox"></div>'}</code></pre>
                     <p>Now, the AI chatbot online is embedded in your website and ready to interact with visitors.</p>
 
                     <h3>5. Ensuring Security and Scalability</h3>
@@ -482,12 +482,12 @@ function App() {
                         <li>✅ Error Logging – Tracks chat issues and errors.</li>
                     </ul>
                     <p>Enable JWT authentication for chat in apiConfig.json:</p>
-                    <pre><code>{
-                    "authentication": {
-                        "jwtSecret": "secure_key",
-                        "enableACL": true
-                    }
-                    }</code></pre>
+                    <pre><code>{'{\n' +
+                    '    "authentication": {\n' +
+                    '        "jwtSecret": "secure_key",\n' +
+                    '        "enableACL": true\n' +
+                    '    }\n' +
+                    '}'}</code></pre>
 
                     <h3>6. Deploying Your AI Chatbot Online</h3>
                     <h4>Step 1: Deploy on a Cloud Server</h4>
@@ -496,12 +496,12 @@ function App() {
 
                     <h4>Step 2: Use a Load Balancer</h4>
                     <p>If you expect high traffic, scale using Redis Pub/Sub:</p>
-                    <pre><code>{
-                    "clustering": {
-                        "enable": true,
-                        "redis": "your-redis-url"
-                    }
-                    }</code></pre>
+                    <pre><code>{'{\n' +
+                    '    "clustering": {\n' +
+                    '        "enable": true,\n' +
+                    '        "redis": "your-redis-url"\n' +
+                    '    }\n' +
+                    '}'}</code></pre>
 
                     <h4>Step 3: Enable Real-Time Logging & Monitoring</h4>
                     <p>Track chatbot performance with:</p>
