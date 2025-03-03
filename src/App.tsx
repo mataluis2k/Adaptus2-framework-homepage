@@ -362,24 +362,23 @@ function App() {
             First, ensure you have Node.js installed and then set up Adaptus2-Framework:
             Make a folder where you want to store your server configurations and plugins:            
           </p>
-          <pre className="bg-secondary/10 p-4 rounded-lg mb-6"><code>
-            mkdir adaptus2
-            cd adaptus2
-            sudo npm -g install adaptus2-framework</code></pre>
+          <pre className="bg-secondary/10 p-4 rounded-lg mb-6"><code>{`
+    mkdir adaptus2
+    cd adaptus2
+    sudo npm -g install adaptus2-framework
+  `}</code></pre>
           <p className="text-secondary/80 text-justify mb-4 leading-relaxed">
             Next, create an apiConfig.json file to define routes and settings:
           </p>
-          <pre className="bg-secondary/10 p-4 rounded-lg mb-6"><code>
-          # Set up your server configuration: \n
-          adaptus2-setup\n
+          <pre className="bg-secondary/10 p-4 rounded-lg mb-6"><code>{`
+    # Set up your server configuration:
+    adaptus2-setup
 
-          #If you have an existing database with schema, hydrate/build the apiConfig.json file:\n
+    # If you have an existing database with schema, hydrate/build the apiConfig.json file:
+    adaptus2 --build
 
-          adaptus2 --build\n
-
-          # run server \n
-                                 
-          </code></pre>
+    # run server
+  `}</code></pre>
           <p className="text-secondary/80 text-justify mb-4 leading-relaxed">
             Run the framework:
           </p>
