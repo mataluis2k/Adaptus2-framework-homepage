@@ -370,14 +370,14 @@ function App() {
             Next, create an apiConfig.json file to define routes and settings:
           </p>
           <pre className="bg-secondary/10 p-4 rounded-lg mb-6"><code>
-          # Set up your server configuration:
-          adaptus2-setup
+          # Set up your server configuration: \n
+          adaptus2-setup\n
 
-          #If you have an existing database with schema, hydrate/build the apiConfig.json file:
+          #If you have an existing database with schema, hydrate/build the apiConfig.json file:\n
 
-          adaptus2 --build
+          adaptus2 --build\n
 
-          # run server 
+          # run server \n
                                  
           </code></pre>
           <p className="text-secondary/80 text-justify mb-4 leading-relaxed">
